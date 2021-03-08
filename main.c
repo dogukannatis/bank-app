@@ -7,14 +7,13 @@
 #define _id 1
 #define registered 5
 
-/*  Author: Doðukan ATÝÞ
+/*  Author: Dogukan Atis
 	Date: 01/03/2021 - started
-		  08/03/2021 - finished
 */
 
 FILE *sum;
 
-int currentTime(){
+int currentTime(int tval){
 	time_t s, val = 1; 
     struct tm* current_time; 
   
@@ -29,8 +28,20 @@ int currentTime(){
            current_time->tm_min, 
            current_time->tm_sec);*/
            
-    int time = current_time->tm_hour;
-	return time;
+    if(tval==1){
+    	int time = current_time->tm_hour;
+    	return time;
+	}else if(tval==0){
+		printf("%02d:%02d:%02d", 
+           current_time->tm_hour, 
+           current_time->tm_min, 
+           current_time->tm_sec);
+         return 0;
+	}else{
+		return time;
+	}
+    
+    
   
 }
 
@@ -108,7 +119,7 @@ int loginScreen(int accountno,int pin, char *accountname){
 	char sat, *kark;
 	char invalid;
 	int enterAccountNum,enterAccountPin;
-	int current_time = currentTime();
+	int current_time = currentTime(1);
 	
 //	printf("\nPlease enter your account number: ");
 	enterAccountNum = inputControl("\nPlease enter your account number:");
@@ -149,7 +160,10 @@ int loginScreen(int accountno,int pin, char *accountname){
 
 int menu(int accountno,int pin, char *accountname, char *accountsurname, bool *summary, float *balance){
 	system("cls");
-	printf("Account balance: %.2f TL\n\n",*balance);
+	printf("Time is: ");
+	currentTime(0);
+	printf("\nAccount balance: %.2f TL\n",*balance);
+	printf("-------------------------------\n",*balance);
 	printf("1-> Show account informations\n");
 	printf("2-> Write account summary to txt\n");
 	printf("3-> Money Transfer\n");
