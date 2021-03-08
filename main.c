@@ -9,6 +9,7 @@
 
 /*  Author: Dogukan Atis
 	Date: 01/03/2021 - started
+		  08/03/2021 - finished
 */
 
 FILE *sum;
