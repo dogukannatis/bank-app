@@ -11,7 +11,7 @@ a mini simulation of atm application
 * account balance: 1000.00
 
 ## App Features:
-1. -Greetings for according to the local time
+1. -Greetings according to the local time
 1. -Show informations
 1. -Writing informations to the .txt file
 1. -Money transfer
